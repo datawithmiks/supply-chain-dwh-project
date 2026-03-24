@@ -1,4 +1,28 @@
--- Surrogate Key Uniqueness Check
+/*
+==============================================================================
+Quality Checks: Gold Layer — dim and fact views
+==============================================================================
+Script Purpose:
+    This script performs various quality checks for data consistency, accuracy,
+    and standardization across the 'gold' schema views. It includes checks for:
+    - Surrogate key uniqueness across all dimension views.
+    - NULL surrogate keys in the fact view.
+    - Referential integrity between fact and dimension views.
+    - Row count consistency between silver and gold layers.
+    - Fan-out diagnostic tests per dimension join.
+    - Duplicate detection in composite key dimensions.
+    - Date dimension format and range validation.
+    - Domain value checks on standardized columns.
+    - NULL measures in the fact view.
+
+Usage Notes:
+    - Run these checks after executing the Gold Layer DDL views script.
+    - Expectation is noted on each check — queries returning results
+      indicate a potential data quality issue.
+    - If row counts do not match between silver and gold, run the
+      individual join diagnostic tests to isolate the culprit dimension.
+==============================================================================
+*/
 
 -- gold.dim_customer
 -- Expectation: No result
