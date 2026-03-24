@@ -1,4 +1,30 @@
--- Data Quality checks
+/*
+==============================================================================
+Quality Checks: Bronze Layer — supply_chain_raw
+==============================================================================
+Script Purpose:
+    This script performs various quality checks for data consistency, accuracy,
+    and standardization across the 'bronze' schema. It includes checks for:
+    - NULL values on critical columns.
+    - Invalid date ordering (ship date before order date).
+    - Negative or zero values on numeric fields.
+    - Duplicate order item records.
+    - Blank strings on key name fields.
+    - Referential consistency between related ID columns.
+    - Unexpected domain values on categorical fields.
+    - Unwanted leading/trailing spaces on string columns.
+    - Invalid coordinate ranges for latitude and longitude.
+    - NULL or invalid shipping day values.
+    - NULL financial metric values.
+    - Data standardization preview for Late_delivery_risk and Product Status.
+
+Usage Notes:
+    - Run these checks before loading the Silver Layer.
+    - Investigate and resolve any discrepancies found during the checks.
+    - Expectation is noted on each check — queries returning results
+      indicate a potential data quality issue.
+==============================================================================
+*/
 
 -- Checking columns are NULL
 -- Expectation: No result
